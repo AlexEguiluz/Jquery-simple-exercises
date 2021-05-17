@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Scroll Jquery</title>
+	<style>
+		div{
+			width: 300px;
+			height: 300px;
+			background: grey;
+			margin: 20px;
+		}
+		.rouge{background: tomato;}
+		aside{display: none;}
+	</style>
+</head>
+<body>
+
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+		<aside>
+			<div class="rouge"></div>
+			<div class="rouge"></div>
+			<div class="rouge"></div>
+		</aside>
+
+	<!--  CDN JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!-- SCRIPT PERSO -->
+	<script>
+		$(document).ready( function(){
+
+			$(document).scroll( function(){ //lors du scroll sur le document, on déclenche la fonction
+
+				console.log( $(document).scrollTop() );
+
+				if( $(document).scrollTop() > 600 ){ //SI la distance verticale de la scroll barre est supérieure à 600 par rapport au HAUT de la page, on récupère la balise aside et on lui applique la propriété css : display:block
+
+					$('aside').css( {'display':'block'} );
+				}
+				else{ //SINON, c'est que l'on est en dessous de 600 et donc on remet l'aside en display:none
+
+					$('aside').css( {'display':'none'} );
+				}
+
+			} );			
+
+		} );
+	</script>
+
+</body>
+</html>

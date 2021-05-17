@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>before - after</title>
+</head>
+<body>
+	<header>
+		<p>Le header</p>
+	</header>
+	<section>
+		<article>
+			<h1>Notion de before() et after() Jquery</h1>
+		</article>
+	</section>
+	<footer>
+		<p>Le footer</p>
+	</footer>
+
+	<!-- CDN JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- Script JS PERSO -->
+	<script>
+		$(document).ready( function(){
+
+			//Placer une image APRES le <h1>:
+			$('h1').after('<img src="img/1.jpg" alt="kb" width="300">');
+
+			//Déplacer la balise '<p>' AVANT le <h1> :
+			$('h1').before( $('p') );
+
+			//-----------------------------------------------------------------------
+			// $('h1')
+			// 	.after('<img src="img/1.jpg" alt="kb" width="300">')
+			// 	.before( $('p') );
+
+		} );
+	</script>
+
+</body>
+</html>

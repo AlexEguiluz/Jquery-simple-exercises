@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Aniamtion jQuery</title>
+  </head>
+  <body>
+    <h1>Les animations "ANIMATE"</h1>
+    <p>
+      Les animations de type 'animate agissent sur les propriétés de
+      positionnement CSS !
+    </p>
+    <p>
+      Comme en CSS, les positionnements par défaut des éléments sont statics et
+      on ne peut pas leur attribuer les propriétés : TOP, LEFT, RIGHT ou BOTTOM.
+      Il faudra donc d'abord s'assurer que les positionnements des élements que
+      l'on veut animer soient en position : 'relative', 'absolu' ou 'fixed' !
+    </p>
+    <hr />
+
+    <p>Exercice 1 : Déplacer la div de 200px vers le bas</p>
+    <button id="btn-simple">Simple</button>
+    <div
+      id="simple"
+      style="
+        width: 200px;
+        height: 100px;
+        background: cadetblue;
+        position: relative;
+      "
+    >
+      Simple
+    </div>
+    <hr />
+
+    <p>
+      Exercice 2 : animation double : déplacer la div de 200px vers le bas et
+      200px vers la droite (objectif => déplacement en diagonale..)
+    </p>
+    <button id="btn-double">double</button>
+    <div
+      id="double"
+      style="
+        width: 200px;
+        height: 100px;
+        background: cadetblue;
+        position: relative;
+      "
+    >
+      Simple
+    </div>
+    <hr />
+
+    <p>Exercice 3 : agrandir (x2) la div en hauteur et largeur</p>
+    <button id="btn-agrandissement">agrandissement</button>
+    <div
+      id="agrandissement"
+      style="
+        width: 200px;
+        height: 100px;
+        background: cadetblue;
+        position: relative;
+      "
+    >
+      Simple
+    </div>
+    <hr />
+
+    <p>
+      Exercice 4 : faire apparaitre et disparaitre la div (AVEC animate !!!)
+    </p>
+    <button id="btn-toggle">toggle</button>
+    <div
+      id="toggle"
+      style="
+        width: 200px;
+        height: 100px;
+        background: cadetblue;
+        position: relative;
+      "
+    >
+      Simple
+    </div>
+    <hr />
+
+    <p>Exercice 5 : faire grossir la div PUIS faire grossir le texte</p>
+    <button id="btn-etape">etape</button>
+    <div
+      id="etape"
+      style="
+        width: 200px;
+        height: 100px;
+        background: cadetblue;
+        position: relative;
+      "
+    >
+      Simple
+    </div>
+    <hr />
+
+    <p>
+      Exercice 6 : faire agrandir la hauteur, PUIS la largeur, puis la déplacer
+      vers la droite, PUIS vers le haut, PUIS agrandir le texte PUIS faire
+      disparaitre la div
+    </p>
+    <button id="btn-multi">multi</button>
+    <div
+      id="multi"
+      style="
+        width: 200px;
+        height: 100px;
+        background: cadetblue;
+        position: relative;
+      "
+    >
+      Simple
+    </div>
+    <hr />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Script PERSO -->
+    <script>
+      $(document).ready(function () {
+        //Exercice 1 : Déplacer la div de 200px vers le bas
+        $("#btn-simple").on("click", function () {
+          $("#simple").css("top", "200px");
+        });
+
+        //Exercice 2 : animation double : déplacer la div de 200px vers le bas et 200px vers la droite (objectif => déplacement en diagonale..)
+
+        //Exercice 1 : Déplacer la div de 200px vers le bas
+        $("#btn-double").on("click", function () {
+          $("#double").css("margin-top", "200px");
+          $("#double").css("margin-left", "200px");
+        });
+
+        //Exercice 3 : agrandir (x2) la div en hauteur et largeur
+        $("#btn-agrandissement").on("click", function () {
+          $("#agrandissement").css("width", "400px");
+          $("#agrandissement").css("height", "200px");
+        });
+
+        //Exercice 4 : faire apparaitre et disparaitre la div (AVEC animate !!!)
+        $("#btn-toggle").on("click", function () {
+          $("#toggle").animate(
+            {
+              width: "0",
+              height: "0",
+            },
+            1000
+          );
+        });
+
+        $("#btn-toggle").on("click", function () {
+          $("#toggle").animate(
+            {
+              width: "200px",
+              height: "100px",
+            },
+            1000
+          );
+        });
+
+        //Exercice 5 : faire grossir la div PUIS faire grossir le texte
+
+        $("#btn-etape").on("click", function () {
+          $("#etape").animate(
+            {
+              width: "400px",
+              height: "200px",
+            },
+            1000
+          );
+        });
+
+        $("#btn-etape").on("click", function () {
+          $("#etape").animate(
+            {
+              "font-size": "100px",
+            },
+            1000
+          );
+        });
+
+        //Exercice 6 : faire agrandir la hauteur, PUIS la largeur, puis la déplacer vers la droite, PUIS vers le haut, PUIS agrandir le texte PUIS faire disparaitre la div
+        $("#btn-multi").on("click", function () {
+          $("#multi").animate(
+            {
+              height: "300px",
+            },
+            1000
+          );
+        });
+        $("#btn-multi").on("click", function () {
+          $("#multi").animate(
+            {
+              width: "500px",
+            },
+            1000
+          );
+        });
+
+        $("#btn-multi").on("click", function () {
+          $("#multi").animate(
+            {
+              "margin-left": "300px",
+            },
+            1000
+          );
+        });
+
+        $("#btn-multi").on("click", function () {
+          $("#multi").animate(
+            {
+              "bottom": "200px",
+            },
+            1000
+          );
+        });
+
+        $("#btn-multi").on("click", function () {
+          $("#multi").animate(
+            {
+              "font-size": "200px",
+            },
+            1000
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

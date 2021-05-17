@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Attributs</title>
+	<style>
+		#test{color:tomato;}
+	</style>
+</head>
+<body>
+
+	<p>On est mardi</p>
+
+	<!-- CDN JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- Script JS PERSO -->
+	<script>
+		$(document).ready( function(){
+
+			//Ajout de l'id #test à notre balise <p>
+			$('p').attr( {'id': 'test', 'title':'salut'} );
+				//attr() : permet de rajouter un/des attributs sur un élément
+
+		} );
+
+	</script>
+
+</body>
+</html>

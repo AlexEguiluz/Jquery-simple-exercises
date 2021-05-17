@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Manipulation balise a</title>
+</head>
+<body>
+
+	<p>Un objet du DOM est une représentation d'un élément HTML. Les propriétés de cet objet représentent les attributs de cet élément.</p>
+
+	<a href="http://www.google.com" id="monLien" class="classeLien">Je suis un lien vers google</a>
+
+
+	<!--  CDN JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- SCRIPT PERSO -->
+	<script>
+		
+		$(document).ready( function(){
+
+			let lien = $('a')[0];
+
+				console.log( lien ); //affiche l'élément récupéré dans la console
+
+				console.log( lien.href ); //affiche la valeur de l'attribut href
+				console.log( lien.id ); //affiche la valeur de l'attribut id
+				console.log( lien.className ); //affiche la valeur de l'attribut class MAIS ATTENTION l'écriture de cette propriété s'écrit : "className"
+
+				console.log( lien.textContent ); //Affiche le contenu de la balise <a>
+
+				lien.textContent = "Je change le texte du lien"; //ici, je modifie la valeur du contenu de la balise <a>
+		} );
+
+	</script>
+</body>
+</html>

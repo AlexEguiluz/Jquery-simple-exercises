@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Slider</title>
+	<!-- CDN fontawesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+	<!-- css perso -->
+	<style type="text/css">
+		body{background:#eee;}
+		article{
+			display: flex;
+			height: 400px;
+			padding: 50px 10px;
+		}
+		.ifa{
+			cursor: pointer;
+			line-height: 400px;
+		}
+		img{
+			min-width: 400px;
+			margin: 10px;
+		}
+		section{width: 500px;margin: 0 auto;}
+	</style>
+</head>
+<body>
+	<section>
+		<article>
+			<i class="fas fa-caret-left ifa"></i>
+			<img src="img/a.jpg" alt="image" title="image" class="bonjour">
+			<i class="fas fa-caret-right ifa"></i>
+		</article>			
+	</section>
+
+	<!--  CDN JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<script>
+		$(document).ready( function(){ 
+		
+			//objectif : realiser un slider :
+
+			//creation variable : récupération des fleches et de l'image
+			let gauche = $('.fa-caret-left');
+				//console.log( gauche );
+			let droite = $('.fa-caret-right');
+				//console.log( droite );
+			let image = $('.bonjour');
+				//console.log( image );
+
+			//creation d'un tableau pour stocker les images :
+			let tableauImage = ['a.jpg', 'b.jpg', 'c.jpg', 'd.jpg']; //RAPPEL : les indices du tableau commencent à zero
+					//indice : 		0	,	 1	, 	2	,	3
+				console.log( tableauImage );
+
+			//On récupère la taille du tableau (nombre d'éléments dans le tableau)
+			let max = tableauImage.length;
+				//console.log( "Taille du tableau : " + max ); //4
+
+			//Lorsque je clique sur la fleche de GAUCHE, je veux passer à l'élément précédent MAIS SI l'élément est en dessous de zero, je veux afficher le dernier élément du tableau !
+
+			//initialisation d'une variable i à zero, qui va nous permettre de parcourir les indices du tableau
+			let i = 0;
+
+			//clique sur la fleche de gauche :
+			gauche.click( function(){
+
+				i--; // pour enlever 1 à la variable i
+					//console.log('test de la décrémentation => ' + i );
+
+				if( i < 0 ){ //SI i est inférieur à zero, je reaffecte la valeur de i avec la langueur de mon tableau moins 1 qui correspondra au dernier indice de mon tableau
+
+					i = max - 1;
+				}
+				//console.log('test si inférieur à zero : ' + i );
+
+				image.attr('src', 'img/'+ tableauImage[ i ] );
+				//Ici, on change la valeur de l'attribut 'src' de la variable 'image' et on lui affecte en valeur l'image correspondante dans le tableau
+			} );
+
+			//clique sur la fleche de droite : EXERCICE
+			droite.click( function(){
+
+				i++; //pour ajouter +1 à la variable i
+				//console.log( "droite incrémentation : "+ i );
+
+				if( i == max ){ //SI la variable i est égale à la taille du tableau (repésenté par la variable 'max'), on réinitialise i à zero (qui correspond au premier indice du tableau)
+
+					i = 0;
+				}
+				//console.log("test :"+ i );
+
+				image.attr('src', 'img/'+ tableauImage[ i ] );
+					//console.log( 'image : ' + tableauImage[ i ] );
+			} );
+
+		} );
+	</script>
+
+</body>
+</html>
